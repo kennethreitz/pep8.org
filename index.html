@@ -169,6 +169,10 @@ ul > li {
 .yes { border-bottom: 4px solid green; }
 .no { border-bottom: 4px solid red; }
 
+/* Firefox is the worst. */
+@-moz-document url-prefix() {
+    h1 {font-variant: normal;}
+}
 
 
   </style>

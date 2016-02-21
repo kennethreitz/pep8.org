@@ -80,20 +80,15 @@
     body {
         font-style: normal;
         font-weight: 400;
-
         font-family: "Ideal Sans A", "Ideal Sans B";
+        font-variant-ligatures: discretionary-ligatures;
 
     }
 
-    h1, h2, h3, h4 {
-        /*font-weight: 700;*/
-    }
 
     h1 {
-        /*border-bottom: 4px solid black;*/
         font-variant: small-caps;
         font-family: "Operator A", "Operator B";
-        /*text-decoration: underline;*/
     }
 
     h2 {
@@ -159,29 +154,13 @@ ul > li {
   /*counter-increment: item;*/
 }
 
-.allowed li:before {
-  /*content: '—';*/
-/*  display: list-item;
-  list-style-type: circle;
-  margin: 0;
-  margin-left: 8em;
-  text-indent: 8em;*/
-}
 
 /* Green is for go; Red is for stop! */
-.yes {  }
-.no {  }
-
-/* Green is for go; Red is for stop! */
-.yes > span {
-  border-bottom: 3px solid green;
-  font-family: "Operator A", "Operator B";
-  font-style: italic;
+.yes + pre > code {
+  border-left: 3px solid rgba(74, 182, 93, 1);
 }
-.no > span {
-  border-bottom: 3px solid red;
-  font-family: "Operator A", "Operator B";
-  font-style: italic;
+.no + pre > code {
+  border-left: 3px solid rgb(244, 76, 78);
 }
 
 /* Firefox is the worst. */
@@ -1241,30 +1220,27 @@ No: if len(seq)
 
   <!-- JavaScripts! -->
 
+  <!-- Syntax Hilighting. -->
   <script src="js/prism.js"></script>
 
   <!-- Anchors.js -->
-  <script>
-    anchors.options = {
-      icon: '#'
-    };
-    anchors.add()
-  </script>
+  <script>anchors.add()</script>
 
+  <!-- Tracking for Kenneth. -->
   <script type="text/javascript">
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '56c96c64c88d901045001b8f');
-    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
-    t.src = 'https://d36ee2fcip1434.cloudfront.net/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
-</script>
+    var _gauges = _gauges || [];
+    (function() {
+      var t   = document.createElement('script');
+      t.type  = 'text/javascript';
+      t.async = true;
+      t.id    = 'gauges-tracker';
+      t.setAttribute('data-site-id', '56c96c64c88d901045001b8f');
+      t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+      t.src = 'https://d36ee2fcip1434.cloudfront.net/track.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(t, s);
+    })();
+  </script>
 
 </body>
 </html>

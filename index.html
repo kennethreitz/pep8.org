@@ -166,8 +166,20 @@ ul > li {
 }
 
 /* Green is for go; Red is for stop! */
-.yes { border-bottom: 4px solid green; }
-.no { border-bottom: 4px solid red; }
+.yes {  }
+.no {  }
+
+/* Green is for go; Red is for stop! */
+.yes > span {
+  border-bottom: 3px solid green;
+  font-family: "Operator A", "Operator B";
+  font-style: italic;
+}
+.no > span {
+  border-bottom: 3px solid red;
+  font-family: "Operator A", "Operator B";
+  font-style: italic;
+}
 
 /* Firefox is the worst. */
 @-moz-document url-prefix() {
@@ -253,7 +265,7 @@ ul > li {
 
 <p>Continuation lines should align wrapped elements either vertically using Python’s implicit line joining inside parentheses, brackets and braces, or using a <em>hanging indent</em> <a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>. When using a hanging indent the following considerations should be applied; there should be no arguments on the first line and further indentation should be used to clearly distinguish itself as a continuation line.</p>
 
-<p class="yes">Yes:</p>
+<p class="yes"><span>Yes:</span></p>
 
 <pre><code class="language-python"># Aligned with opening delimiter.
 foo = long_function_name(var_one, var_two,
@@ -270,7 +282,7 @@ foo = long_function_name(
     var_one, var_two,
     var_three, var_four)</code></pre>
 
-<p class="no">No:</p>
+<p class="no"><span>No:</span></p>
 
 <pre><code class="language-python"># Arguments on first line forbidden when not using vertical alignment.
 foo = long_function_name(var_one, var_two,
@@ -421,11 +433,11 @@ result = some_function_that_takes_arguments(
 
 <li><p>Imports should usually be on separate lines, e.g.:</p>
 
-<p class="yes">Yes:</p>
+<p class="yes"><span>Yes:</span></p>
 <pre><code class="language-python">import os
 import sys</code></pre>
 
-<p class="no">No:</p>
+<p class="no"><span>No:</span></p>
 <pre><code class="language-python">import os, sys</code></pre>
 
 <p>It’s okay to say this though:</p>
@@ -499,25 +511,25 @@ import foo.bar.yourclass</code></pre>
 
 <li><p>Immediately inside parentheses, brackets or braces. :</p>
 
-<p class="yes">Yes:</p>
+<p class="yes"><span>Yes:</span></p>
 <pre><code class="language-python">spam(ham[1], {eggs: 2})</code></pre>
 
-<p class="no">No:</p>
+<p class="no"><span>No:</span></p>
 <pre><code class="language-python">spam( ham[ 1 ], { eggs: 2 } )</code></pre>
 
 </li>
 
 <li><p>Immediately before a comma, semicolon, or colon:</p>
 
-<p class="yes">Yes:</p>
+<p class="yes"><span>Yes:</span></p>
 <pre><code class="language-python">if x == 4: print x, y; x, y = y, x</code></pre>
 
-<p class="no">No:</p>
+<p class="no"><span>No:</span></p>
 <pre><code class="language-python">if x == 4 : print x , y ; x , y = y , x</code></pre>
 
 <li><p>However, in a slice the colon acts like a binary operator, and should have equal amounts on either side (treating it as the operator with the lowest priority). In an extended slice, both colons must have the same amount of spacing applied. Exception: when a slice parameter is omitted, the space is omitted.</p>
 
-<p class="yes">Yes:</p>
+<p class="yes"><span>Yes:</span></p>
 
 <pre><code class="language-python">ham[1:9], ham[1:9:3], ham[:9:3], ham[1::3], ham[1:9:]
 ham[lower:upper], ham[lower:upper:], ham[lower::step]
@@ -525,7 +537,7 @@ ham[lower+offset : upper+offset]
 ham[: upper_fn(x) : step_fn(x)], ham[:: step_fn(x)]
 ham[lower + offset : upper + offset]</code></pre>
 
-<p class="no">No:</p>
+<p class="no"><span>No:</span></p>
 
 <pre><code class="language-python">ham[lower + offset:upper + offset]
 ham[1: 9], ham[1 :9], ham[1:9 :3]
@@ -535,30 +547,30 @@ ham[ : upper]</code></pre></li>
 <li><p>Immediately before the open parenthesis that starts the argument list of a function call:</p>
 
 
-<p class="yes">Yes:</p>
+<p class="yes"><span>Yes:</span></p>
 <pre><code class="language-python">spam(1)</code></pre>
 
-<p class="no">No:</p>
+<p class="no"><span>No:</span></p>
 <pre><code class="language-python">spam (1)</code></pre>
 
 
 <li><p>Immediately before the open parenthesis that starts an indexing or slicing:</p>
 
 
-<p class="yes">Yes:</p>
+<p class="yes"><span>Yes:</span></p>
 <pre><code class="language-python">dct[&#39;key&#39;] = lst[index]</code></pre>
-<p class="no">No:</p>
+<p class="no"><span>No:</span></p>
 <pre><code class="language-python">dct [&#39;key&#39;] = lst [index]</code></pre></li>
 
 <li><p>More than one space around an assignment (or other) operator to align it with another.</p>
 
-<p class="yes">Yes:</p>
+<p class="yes"><span>Yes:</span></p>
 
 <pre><code class="language-python">x = 1
 y = 2
 long_variable = 3</code></pre>
 
-<p class="no">No:</p>
+<p class="no"><span>No:</span></p>
 
 <pre><code class="language-python">x             = 1
 y             = 2
@@ -578,7 +590,7 @@ long_variable = 3</code></pre></li>
 <p></p>
 <li><p>If operators with different priorities are used, consider adding whitespace around the operators with the lowest priority(ies). Use your own judgment; however, never use more than one space, and always have the same amount of whitespace on both sides of a binary operator.</p>
 
-<p class="yes">Yes:</p>
+<p class="yes"><span>Yes:</span></p>
 
 <pre><code class="language-python">i = i + 1
 submitted += 1
@@ -586,7 +598,7 @@ x = x*2 - 1
 hypot2 = x*x + y*y
 c = (a+b) * (a-b)</code></pre>
 
-<p class="no">No:</p>
+<p class="no"><span>No:</span></p>
 
 <pre><code class="language-python">i=i+1
 submitted +=1
@@ -596,43 +608,43 @@ c = (a + b) * (a - b)</code></pre></li>
 
 <li><p>Don’t use spaces around the <code>=</code> sign when used to indicate a keyword argument or a default parameter value.</p>
 
-<p class="yes">Yes:</p>
+<p class="yes"><span>Yes:</span></p>
 
 <pre><code class="language-python">def complex(real, imag=0.0):
     return magic(r=real, i=imag)</code></pre>
 
-<p class="no">No:</p>
+<p class="no"><span>No:</span></p>
 
 <pre><code class="language-python">def complex(real, imag = 0.0):
     return magic(r = real, i = imag)</code></pre></li>
 
 <li><p>Function annotations should use the normal rules for colons and always have spaces around the <code>-&gt;</code> arrow if present. (See <a href="#function-annotations">Function Annotations</a> below for more about function annotations.)</p>
 
-<p class="yes">Yes:</p>
+<p class="yes"><span>Yes:</span></p>
 
 <pre><code class="language-python">def munge(input: AnyStr): ...
 def munge() -&gt; AnyStr: ...</code></pre>
 
-<p class="no">No:</p>
+<p class="no"><span>No:</span></p>
 
 <pre><code class="language-python">def munge(input:AnyStr): ...
 def munge()-&gt;PosInt: ...</code></pre></li>
 
 <li><p>When combining an argument annotation with a default value, use spaces around the <code>=</code> sign (but only for those arguments that have both an annotation and a default).</p>
 
-<p class="yes">Yes:</p>
+<p class="yes"><span>Yes:</span></p>
 
 <pre><code class="language-python">def munge(sep: AnyStr = None): ...
 def munge(input: AnyStr, sep: AnyStr = None, limit=1000): ...</code></pre>
 
-<p class="no">No:</p>
+<p class="no"><span>No:</span></p>
 
 <pre><code class="language-python">def munge(input: AnyStr=None): ...
 def munge(input: AnyStr, limit = 1000): ...</code></pre></li>
 
 <li><p>Compound statements (multiple statements on the same line) are generally discouraged.</p>
 
-<p class="yes">Yes:</p>
+<p class="yes"><span>Yes:</span></p>
 
 <pre><code class="language-python">if foo == &#39;blah&#39;:
     do_blah_thing()
@@ -640,20 +652,20 @@ do_one()
 do_two()
 do_three()</code></pre>
 
-<p class="no">Rather not:</p>
+<p class="no"><span>Rather not:</span></p>
 
 <pre><code class="language-python">if foo == &#39;blah&#39;: do_blah_thing()
 do_one(); do_two(); do_three()</code></pre></li>
 
 <li><p>While sometimes it’s okay to put an if/for/while with a small body on the same line, never do this for multi-clause statements. Also avoid folding such long lines!</p>
 
-<p class="no">Rather not:</p>
+<p class="no"><span>Rather not:</span></p>
 
 <pre><code class="language-python">if foo == &#39;blah&#39;: do_blah_thing()
 for x in lst: total += x
 while t &lt; 10: t = delay()</code></pre>
 
-<p class="no">Definitely not:</p>
+<p class="no"><span>Definitely not:</span></p>
 
 <pre><code class="language-python">if foo == &#39;blah&#39;: do_blah_thing()
 else: do_non_blah_thing()
@@ -700,11 +712,12 @@ if foo == &#39;blah&#39;: one(); two(); three()</code></pre></li>
 
 <p>An inline comment is a comment on the same line as a statement. Inline comments should be separated by at least two spaces from the statement. They should start with a # and a single space.</p>
 
-<p>Inline comments are unnecessary and in fact distracting if they state the obvious. Don’t do this:</p>
+<p>Inline comments are unnecessary and in fact distracting if they state the obvious.</p>
+<p class="no"><span>Don’t do this:</span></p>
 
 <pre><code class="language-python">x = x + 1                 # Increment x</code></pre>
 
-<p>But sometimes, this is useful:</p>
+<p class="yes"><span>But sometimes, this is useful:</span></p>
 
 <pre><code class="language-python">x = x + 1                 # Compensate for border</code></pre>
 
@@ -958,11 +971,11 @@ Optional plotz says to frobnicate the bizbaz first.
 
 <li><p>Use <code>is not</code> operator rather than <code>not ... is</code>. While both expressions are functionally identical, the former is more readable and preferred.</p>
 
-<p class="yes">Yes:</p>
+<p class="yes"><span>Yes:</span></p>
 
 <pre><code class="language-python">if foo is not None:</code></pre>
 
-<p class="no">No:</p>
+<p class="no"><span>No:</span></p>
 
 <pre><code class="language-python">if not foo is None:</code></pre></li>
 
@@ -974,11 +987,11 @@ Optional plotz says to frobnicate the bizbaz first.
 
 <li><p>Always use a def statement instead of an assignment statement that binds a lambda expression directly to an identifier.</p>
 
-<p class="yes">Yes:</p>
+<p class="yes"><span>Yes:</span></p>
 
 <pre><code class="language-python">def f(x): return 2*x</code></pre>
 
-<p class="no">No:</p>
+<p class="no"><span>No:</span></p>
 
 <pre><code class="language-python">f = lambda x: 2*x</code></pre>
 
@@ -1033,7 +1046,7 @@ except Exception as exc:
 <p></p>
 <li><p>Additionally, for all try/except clauses, limit the <code>try</code> clause to the absolute minimum amount of code necessary. Again, this avoids masking bugs.</p>
 
-<p class="yes">Yes:</p>
+<p class="yes"><span>Yes:</span></p>
 
 <pre><code class="language-python">try:
     value = collection[key]
@@ -1042,7 +1055,7 @@ except KeyError:
 else:
     return handle_value(value)</code></pre>
 
-<p class="no">No:</p>
+<p class="no"><span>No:</span></p>
 
 <pre><code class="language-python">try:
     # Too broad!
@@ -1055,12 +1068,12 @@ except KeyError:
 
 <li><p>Context managers should be invoked through separate functions or methods whenever they do something other than acquire and release resources. For example:</p>
 
-<p class="yes">Yes:</p>
+<p class="yes"><span>Yes:</span></p>
 
 <pre><code class="language-python">with conn.begin_transaction():
     do_stuff_in_transaction(conn)</code></pre>
 
-<p class="no">No:</p>
+<p class="no"><span>No:</span></p>
 
 <pre><code class="language-python">with conn:
     do_stuff_in_transaction(conn)</code></pre>
@@ -1069,7 +1082,7 @@ except KeyError:
 
 <li><p>Be consistent in return statements. Either all return statements in a function should return an expression, or none of them should. If any return statement returns an expression, any return statements where no value is returned should explicitly state this as <code>return None</code>, and an explicit return statement should be present at the end of the function (if reachable).</p>
 
-<p class="yes">Yes:</p>
+<p class="yes"><span>Yes:</span></p>
 
 <pre><code class="language-python">def foo(x):
     if x &gt;= 0:
@@ -1082,7 +1095,7 @@ def bar(x):
         return None
     return math.sqrt(x)</code></pre>
 
-<p class="no">No:</p>
+<p class="no"><span>No:</span></p>
 
 <pre><code class="language-python">def foo(x):
     if x &gt;= 0:
@@ -1128,10 +1141,10 @@ No: if len(seq)
 
 <li><p>Don’t compare boolean values to True or False using <code>==</code>. :</p>
 
-<p class="yes">Yes:</p>
+<p class="yes"><span>Yes:</span></p>
 <pre><code class="language-python">if greeting:</code></pre>
 
-<p class="no">No:</p>
+<p class="no"><span>No:</span></p>
 <pre><code class="language-python">if greeting == True:</code></pre>
 
 <p class="no">Worse:</p>

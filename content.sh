@@ -1,0 +1,1 @@
+curl -s https://hg.python.org/peps/raw-file/tip/pep-0008.txt | pandoc -S --toc --from rst --to html

@@ -6,6 +6,7 @@
   padding: .5em;
   position: absolute;
   overflow: auto;
+  margin-top: 3.5em;
 }
 
 .toc-header {

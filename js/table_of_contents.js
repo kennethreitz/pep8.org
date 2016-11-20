@@ -11,7 +11,8 @@ window.addEventListener("DOMContentLoaded", function(event) {
   // create table of contents
   var toc = document.createElement('nav');
   toc.className = 'toc';
-  toc.innerHTML = '<h3 class=toc-header>Table of Contents</h3>';
+  // TODO: No need for header here.
+  // toc.innerHTML = '<h3 class=toc-header>Table of Contents</h3>';
   var links = {};
   for(var i = 0, header, a; i < headers.length; i++) {
     header = headers[i];

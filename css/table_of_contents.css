@@ -30,6 +30,7 @@
 
 .toc-link.h1 {
   font-size: 1em;
+  line-height: 2em;
 }
 
 .toc-link.h2 {
@@ -47,6 +48,8 @@
 .toc-link.h3 {
   margin-left: 1em;
   font-size: .9em;
+  margin-bottom: 0.4em;
+  margin-top: 0.4em;
 }
 
 .toc-link.h3::before {

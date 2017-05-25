@@ -452,8 +452,6 @@ import sys</code></pre>
 
 <p>You should put a blank line between each group of imports.</p>
 
-<p>Put any relevant <code>__all__</code> specification after the imports.</p></li>
-
 <li><p>Absolute imports are recommended, as they are usually more readable and tend to be better behaved (or at least give better error messages) if the import system is incorrectly configured (such as when a directory inside a package ends up on <code>sys.path</code>):</p>
 
 <pre><code class="language-python">import mypkg.sibling
@@ -486,6 +484,9 @@ import foo.bar.yourclass</code></pre>
 <p>When republishing names this way, the guidelines below regarding public and internal interfaces still apply.</p></li>
 </ul>
 
+<h2 id="dunder-variables">Dunder Variables</h2>
+
+<p>All relevant dunder variables (e.g. <code>__all__</code>, <code>__author__</code>, <code>__version__</code>, etc) should be placed after the module docstring and before any imports, separated by a blank line above and below.</p>
 
 <h1 id="string-quotes">String Quotes</h1>
 
@@ -735,18 +736,6 @@ Optional plotz says to frobnicate the bizbaz first.
 <li>For one liner docstrings, please keep the closing <code>&quot;&quot;&quot;</code> on the same line.</li>
 
 </ul>
-
-
-<h1 id="version-bookkeeping">Version Bookkeeping</h1>
-
-
-<p>If you have to have Subversion, CVS, or RCS crud in your source file, do it as follows. :</p>
-
-<pre><code class="language-python">__version__ = &quot;$Revision$&quot;
-# $Source$</code></pre>
-
-<p>These lines should be included after the module’s docstring, before any other code, separated by a blank line above and below.</p>
-
 
 <h1 id="naming-conventions">Naming Conventions</h1>
 

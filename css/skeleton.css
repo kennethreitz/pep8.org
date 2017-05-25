@@ -319,6 +319,16 @@ pre > code {
   padding: 1rem 1.5rem;
   white-space: pre; }
 
+/* Ensure scrollbars are always visible on macOS */
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+  height: 5px; }
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  height: 2px;
+  background-color: rgba(0,0,0,.3);
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5); }
 
 /* Tables
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

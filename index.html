@@ -1172,23 +1172,10 @@ No: if len(seq):
 <p>near the top of the file; this tells type checker to ignore all annotations. (More fine-grained ways of disabling complaints from type checkers can be found in <a href="https://www.python.org/dev/peps/pep-0484/">PEP 484</a>.)</p></li>
 
 <li>Like linters, type checkers are optional, separate tools. Python interpreters by default should not issue any messages due to type checking and should not alter their behavior based on annotations.</li>
-
+<p></p>
 <li>Users who don’t want to use type checkers are free to ignore them. However, it is expected that users of third party library packages may want to run type checkers over those packages. For this purpose <a href="https://www.python.org/dev/peps/pep-0484/">PEP 484</a> recommends the use of stub files: .pyi files that are read by the type checker in preference of the corresponding .py files. Stub files can be distributed with a library, or separately (with the library author’s permission) through the typeshed repo <a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>.</li>
 <p></p>
-<li><p>For code that needs to be backwards compatible, function annotations can be added in the form of comments. Basically, this Python 3 annotation:</p>
-
-<pre><code class="language-python">def embezzle(self, account: str, funds: int = 1000000, **fake_receipts: str) -&gt; None:
-    &quot;&quot;&quot;Embezzle funds from account using fake receipts.&quot;&quot;&quot;
-    &lt;code goes here&gt;</code></pre>
-
-<p>is equivalent to the following:</p>
-
-<pre><code class="language-python">def embezzle(self, account, funds=1000000, **fake_receipts):
-    # type: (str, int, **str) -&gt; None
-    &quot;&quot;&quot;Embezzle funds from account using fake receipts.&quot;&quot;&quot;
-    &lt;code goes here&gt;</code></pre>
-
-<p>The mypy type checker <a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> currently supports this syntax, and other type checkers are encouraged to adopt it.</p></li>
+<li><p>For code that needs to be backwards compatible, function annotations can be added in the form of comments. See the relevant section of PEP 484 <a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>.</p></li>
 
 </ul>
 
@@ -1204,7 +1191,7 @@ No: if len(seq):
 <li id="fn3"><p><em>Hanging indentation</em> is a type-setting style where all the lines in a paragraph are indented except the first line. In the context of Python, the term is used to describe a style where the opening parenthesis of a parenthesized statement is the last non-whitespace character of the line, with subsequent lines being indented until the closing parenthesis.<a href="#fnref3">↩</a></p></li>
 <li id="fn4"><p><a href="http://www.wikipedia.com/wiki/CamelCase" class="uri">http://www.wikipedia.com/wiki/CamelCase</a><a href="#fnref4">↩</a></p></li>
 <li id="fn5"><p>Typeshed repo <a href="https://github.com/python/typeshed" class="uri">https://github.com/python/typeshed</a><a href="#fnref5">↩</a></p></li>
-<li id="fn6"><p>mypy type checker <a href="http://mypy-lang.org" class="uri">http://mypy-lang.org</a> <a href="https://github.com/JukkaL/mypy" class="uri">https://github.com/JukkaL/mypy</a><a href="#fnref6">↩</a></p></li>
+<li id="fn6"><p>Suggested syntax for Python 2.7 and straddling code <a href="https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code" class="uri">https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code</a><a href="#fnref6">↩</a></p></li>
 </ol>
 </div>
 

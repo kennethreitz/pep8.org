@@ -367,18 +367,26 @@ result = some_function_that_takes_arguments(
 
 <p>Another such case is with <code>assert</code> statements.</p>
 
-<p>Make sure to indent the continued line appropriately. The preferred place to break around a binary operator is <em>after</em> the operator, not before it. Some examples:</p>
+<p>Make sure to indent the continued line appropriately.</p>
+
+<h2 id="break-before-or-after-binary-operator">Should a line break before or after a binary operator?</h2>
+
+<p>For decades the recommended style has been to break after binary operators. However, recent reseach unearthed recommendations by Donald Knuth to break <em>before</em> binary operators, in his writings about typesetting <a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>. Therefore it is permissible to break before or after a binary operator, as long as the convention is consistent locally. For new code Knuth's style is suggested.</p>
+
+<p>Some examples of code beaking before binary Boolean operators:<p>
 
 <pre><code class="language-python">class Rectangle(Blob):
 
     def __init__(self, width, height,
                  color=&#39;black&#39;, emphasis=None, highlight=0):
-        if (width == 0 and height == 0 and
-                color == &#39;red&#39; and emphasis == &#39;strong&#39; or
-                highlight &gt; 100):
+        if (width == 0
+            and height == 0
+            and color == &#39;red&#39;
+            and emphasis == &#39;strong&#39;
+            or highlight &gt; 100):
             raise ValueError(&quot;sorry, you lose&quot;)
-        if width == 0 and height == 0 and (color == &#39;red&#39; or
-                                           emphasis is None):
+        if (width == 0 and height == 0
+            and (color == &#39;red&#39; or emphasis is None):
             raise ValueError(&quot;I don&#39;t think so -- values are %s, %s&quot; %
                              (width, height))
         Blob.__init__(self, width, height,
@@ -764,7 +772,7 @@ Optional plotz says to frobnicate the bizbaz first.
 <li><code>UPPERCASE</code></li>
 <li><code>UPPER_CASE_WITH_UNDERSCORES</code></li>
 
-<li><code>CapitalizedWords</code> (or CapWords, CamelCase<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>, StudlyCaps)</li>
+<li><code>CapitalizedWords</code> (or CapWords, CamelCase<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>, StudlyCaps)</li>
 
 <li><code>mixedCase</code> (differs from CapitalizedWords by initial lowercase character!)</li>
 
@@ -1173,9 +1181,9 @@ No: if len(seq):
 
 <li>Like linters, type checkers are optional, separate tools. Python interpreters by default should not issue any messages due to type checking and should not alter their behavior based on annotations.</li>
 <p></p>
-<li>Users who don’t want to use type checkers are free to ignore them. However, it is expected that users of third party library packages may want to run type checkers over those packages. For this purpose <a href="https://www.python.org/dev/peps/pep-0484/">PEP 484</a> recommends the use of stub files: .pyi files that are read by the type checker in preference of the corresponding .py files. Stub files can be distributed with a library, or separately (with the library author’s permission) through the typeshed repo <a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>.</li>
+<li>Users who don’t want to use type checkers are free to ignore them. However, it is expected that users of third party library packages may want to run type checkers over those packages. For this purpose <a href="https://www.python.org/dev/peps/pep-0484/">PEP 484</a> recommends the use of stub files: .pyi files that are read by the type checker in preference of the corresponding .py files. Stub files can be distributed with a library, or separately (with the library author’s permission) through the typeshed repo <a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>.</li>
 <p></p>
-<li><p>For code that needs to be backwards compatible, function annotations can be added in the form of comments. See the relevant section of PEP 484 <a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>.</p></li>
+<li><p>For code that needs to be backwards compatible, function annotations can be added in the form of comments. See the relevant section of PEP 484 <a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>.</p></li>
 
 </ul>
 
@@ -1189,9 +1197,10 @@ No: if len(seq):
 <li id="fn1"><p><a href="https://www.python.org/dev/peps/pep-0007/">PEP 7</a>, Style Guide for C Code, van Rossum<a href="#fnref1">↩</a></p></li>
 <li id="fn2"><p>Barry’s GNU Mailman style guide <a href="http://barry.warsaw.us/software/STYLEGUIDE.txt" class="uri">http://barry.warsaw.us/software/STYLEGUIDE.txt</a><a href="#fnref2">↩</a></p></li>
 <li id="fn3"><p><em>Hanging indentation</em> is a type-setting style where all the lines in a paragraph are indented except the first line. In the context of Python, the term is used to describe a style where the opening parenthesis of a parenthesized statement is the last non-whitespace character of the line, with subsequent lines being indented until the closing parenthesis.<a href="#fnref3">↩</a></p></li>
-<li id="fn4"><p><a href="http://www.wikipedia.com/wiki/CamelCase" class="uri">http://www.wikipedia.com/wiki/CamelCase</a><a href="#fnref4">↩</a></p></li>
-<li id="fn5"><p>Typeshed repo <a href="https://github.com/python/typeshed" class="uri">https://github.com/python/typeshed</a><a href="#fnref5">↩</a></p></li>
-<li id="fn6"><p>Suggested syntax for Python 2.7 and straddling code <a href="https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code" class="uri">https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code</a><a href="#fnref6">↩</a></p></li>
+<li id="fn4"><p><a href="http://rhodesmill.org/brandon/slides/2012-11-pyconca/#laying-down-the-law" class="uri">http://rhodesmill.org/brandon/slides/2012-11-pyconca/#laying-down-the-law</a><a href="#fnref4">↩</a></p></li>
+<li id="fn5"><p><a href="http://www.wikipedia.com/wiki/CamelCase" class="uri">http://www.wikipedia.com/wiki/CamelCase</a><a href="#fnref5">↩</a></p></li>
+<li id="fn6"><p>Typeshed repo <a href="https://github.com/python/typeshed" class="uri">https://github.com/python/typeshed</a><a href="#fnref6">↩</a></p></li>
+<li id="fn7"><p>Suggested syntax for Python 2.7 and straddling code <a href="https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code" class="uri">https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code</a><a href="#fnref7">↩</a></p></li>
 </ol>
 </div>
 

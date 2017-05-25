@@ -1031,7 +1031,7 @@ or contravariant behavior correspondingly. Examples</p>
 except ImportError:
     platform_specific_module = None</code></pre>
 
-<p>A bare <code>except:</code> clause will catch SystemExit and KeyboardInterrupt exceptions, making it harder to interrupt a program with Control-C, and can disguise other problems. If you want to catch all exceptions that signal program errors, use <code>except Exception:</code> (bare except is equivalent to <code>except BaseException:</code>).</p>
+<p>A bare <code>except:</code> clause will catch SystemExit and KeyboardInterrupt exceptions, making it harder to interrupt a program with <code>Control-C</code>, and can disguise other problems. If you want to catch all exceptions that signal program errors, use <code>except Exception:</code> (bare except is equivalent to <code>except BaseException:</code>).</p>
 
 <p>A good rule of thumb is to limit use of bare ‘except’ clauses to two cases:</p>
 

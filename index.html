@@ -484,9 +484,26 @@ import foo.bar.yourclass</code></pre>
 <p>When republishing names this way, the guidelines below regarding public and internal interfaces still apply.</p></li>
 </ul>
 
-<h2 id="dunder-variables">Dunder Variables</h2>
+<h2 id="module-level-dunder-names">Module level dunder names</h2>
 
-<p>All relevant dunder variables (e.g. <code>__all__</code>, <code>__author__</code>, <code>__version__</code>, etc) should be placed after the module docstring and before any imports, separated by a blank line above and below.</p>
+<p>Module level "dunders" (i.e. names with two leading and two trailing underscores) such as <code>__all__</code>, <code>__author__</code>, <code>__version__</code>, etc. should be placed after the module docstring but before any import statements <em>except</em> <code>from __future__</code> imports. Python mandates that future-imports must appear in the module before any other code except docstrings.</p>
+
+<p>For example:</p>
+
+<pre><code class="language-python">"""This is the example module.
+
+This module does stuff.
+"""
+
+from __future__ import barry_as_FLUFL
+
+__all__ = ['a', 'b', 'c']
+__version__ = '0.1'
+__author__ = 'Cardinal Biggles'
+
+import os
+import sys
+</code></pre>
 
 <h1 id="string-quotes">String Quotes</h1>
 

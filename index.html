@@ -213,9 +213,9 @@ ul > li {
 
 <p>One of Guido’s key insights is that code is read much more often than it is written. The guidelines provided here are intended to improve the readability of code and make it consistent across the wide spectrum of Python code. As <a href="https://www.python.org/dev/peps/pep-0020/">PEP 20</a> says, “Readability counts”.</p>
 
-<p>A style guide is about consistency. Consistency with this style guide is important. Consistency within a project is more important. Consistency within one module or function is most important.</p>
+<p>A style guide is about consistency. Consistency with this style guide is important. Consistency within a project is more important. Consistency within one module or function is the most important.</p>
 
-<p>But most importantly: know when to be inconsistent&mdash;sometimes the style guide just doesn’t apply. When in doubt, use your best judgment. Look at other examples and decide what looks best. And don’t hesitate to ask!</p>
+<p>However, know when to be inconsistent&mdash;sometimes style guide recommendations just aren't applicable. When in doubt, use your best judgment. Look at other examples and decide what looks best. And don’t hesitate to ask!</p>
 
 <p>In particular: do not break backwards compatibility just to comply with this PEP!</p>
 
@@ -247,7 +247,7 @@ ul > li {
 
 <p>Use 4 spaces per indentation level.</p>
 
-<p>Continuation lines should align wrapped elements either vertically using Python’s implicit line joining inside parentheses, brackets and braces, or using a <em>hanging indent</em> <a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>. When using a hanging indent the following considerations should be applied; there should be no arguments on the first line and further indentation should be used to clearly distinguish itself as a continuation line.</p>
+<p>Continuation lines should align wrapped elements either vertically using Python’s implicit line joining inside parentheses, brackets and braces, or using a <em>hanging indent</em> <a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>. When using a hanging indent the following should be considered; there should be no arguments on the first line and further indentation should be used to clearly distinguish itself as a continuation line.</p>
 
 <p class="yes"><span>Yes:</span></p>
 
@@ -1131,8 +1131,8 @@ No:  if type(obj) is type(1):</code></pre>
 <pre><code class="language-python">Yes: if not seq:
      if seq:
 
-No: if len(seq)
-    if not len(seq)</code></pre></li>
+No: if len(seq):
+    if not len(seq):</code></pre></li>
 
 <li>Don’t write string literals that rely on significant trailing whitespace. Such trailing whitespace is visually indistinguishable and some editors (or more recently, reindent.py) will trim them.</li>
 

@@ -371,27 +371,31 @@ result = some_function_that_takes_arguments(
 
 <h2 id="break-before-or-after-binary-operator">Should a line break before or after a binary operator?</h2>
 
-<p>For decades the recommended style has been to break after binary operators. However, recent research unearthed recommendations by Donald Knuth to break <em>before</em> binary operators, in his writings about typesetting <a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>. Therefore it is permissible to break before or after a binary operator, as long as the convention is consistent locally. For new code Knuth's style is suggested.</p>
+<p class="no">For decades the recommended style was to break after binary operators. But this can hurt readability in two ways: the operators tend to get scattered across different columns on the screen, and each operator is moved away from its operand and onto the previous line. Here, the eye has to do extra work to tell which items are added and which are subtracted:</p>
 
-<p>Some examples of code breaking before binary Boolean operators:<p>
+<pre><code class="language-python"># No: operators sit far away from their operands
+income = (gross_wages +
+          taxable_interest +
+          (dividends - qualified_dividends) -
+          ira_deduction -
+          student_loan_interest)
+</code></pre>
 
-<pre><code class="language-python">class Rectangle(Blob):
+<p>To solve this readability problem, mathematicians and their publishers follow the opposite convention. Donald Knuth explains the traditional rule in his <em>Computers and Typesetting</em> series:</p>
 
-    def __init__(self, width, height,
-                 color=&#39;black&#39;, emphasis=None, highlight=0):
-        if (width == 0
-            and height == 0
-            and color == &#39;red&#39;
-            and emphasis == &#39;strong&#39;
-            or highlight &gt; 100):
-            raise ValueError(&quot;sorry, you lose&quot;)
-        if (width == 0 and height == 0
-            and (color == &#39;red&#39; or emphasis is None):
-            raise ValueError(&quot;I don&#39;t think so -- values are %s, %s&quot; %
-                             (width, height))
-        Blob.__init__(self, width, height,
-                      color, emphasis, highlight)</code></pre>
+<blockquote>“Although formulas within a paragraph always break after binary operations and relations, displayed formulas always break before binary operations” <a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>.</blockquote>
 
+<p class="yes">Following the tradition from mathematics usually results in more readable code:</p>
+
+<pre><code class="language-python"># Yes: easy to match operators with operands
+income = (gross_wages
+          + taxable_interest
+          + (dividends - qualified_dividends)
+          - ira_deduction
+          - student_loan_interest)
+</code></pre>
+
+<p>In Python code, it is permissible to break before or after a binary operator, as long as the convention is consistent locally. For new code Knuth's style is suggested.</p>
 
 <h2 id="blank-lines">Blank Lines</h2>
 
@@ -1197,7 +1201,7 @@ No: if len(seq):
 <li id="fn1"><p><a href="https://www.python.org/dev/peps/pep-0007/">PEP 7</a>, Style Guide for C Code, van Rossum<a href="#fnref1">↩</a></p></li>
 <li id="fn2"><p>Barry’s GNU Mailman style guide <a href="http://barry.warsaw.us/software/STYLEGUIDE.txt" class="uri">http://barry.warsaw.us/software/STYLEGUIDE.txt</a><a href="#fnref2">↩</a></p></li>
 <li id="fn3"><p><em>Hanging indentation</em> is a type-setting style where all the lines in a paragraph are indented except the first line. In the context of Python, the term is used to describe a style where the opening parenthesis of a parenthesized statement is the last non-whitespace character of the line, with subsequent lines being indented until the closing parenthesis.<a href="#fnref3">↩</a></p></li>
-<li id="fn4"><p><a href="http://rhodesmill.org/brandon/slides/2012-11-pyconca/#laying-down-the-law" class="uri">http://rhodesmill.org/brandon/slides/2012-11-pyconca/#laying-down-the-law</a><a href="#fnref4">↩</a></p></li>
+<li id="fn4"><p>Donald Knuth's <em>The TeXBook</em>, pages 195 and 196.<a href="#fnref4">↩</a></p></li>
 <li id="fn5"><p><a href="http://www.wikipedia.com/wiki/CamelCase" class="uri">http://www.wikipedia.com/wiki/CamelCase</a><a href="#fnref5">↩</a></p></li>
 <li id="fn6"><p>Typeshed repo <a href="https://github.com/python/typeshed" class="uri">https://github.com/python/typeshed</a><a href="#fnref6">↩</a></p></li>
 <li id="fn7"><p>Suggested syntax for Python 2.7 and straddling code <a href="https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code" class="uri">https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code</a><a href="#fnref7">↩</a></p></li>

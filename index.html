@@ -303,8 +303,8 @@ if (this_is_one_thing and
     do_something()
 
 # Add some extra indentation on the conditional continuation line.
-if (this_is_one_thing and
-        that_is_another_thing):
+if (this_is_one_thing
+        and that_is_another_thing):
     do_something()</code></pre>
 
 <p>The closing brace/bracket/parenthesis on multi-line constructs may either line up under the first non-whitespace character of the last line of list, as in:</p>
@@ -373,7 +373,7 @@ result = some_function_that_takes_arguments(
 
 <p>For decades the recommended style has been to break after binary operators. However, recent reseach unearthed recommendations by Donald Knuth to break <em>before</em> binary operators, in his writings about typesetting <a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>. Therefore it is permissible to break before or after a binary operator, as long as the convention is consistent locally. For new code Knuth's style is suggested.</p>
 
-<p>Some examples of code beaking before binary Boolean operators:<p>
+<p>Some examples of code breaking before binary Boolean operators:<p>
 
 <pre><code class="language-python">class Rectangle(Blob):
 

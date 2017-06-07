@@ -8,7 +8,10 @@ If you serve this locally from `0.0.0.0`, the fonts will display properly. They 
 
 An easy way to do this:
 
-    $ python -m SimpleHTTPServer
+    $ python -m SimpleHTTPServer #python2
+or
+
+    $ python -m http.server      #python3
 
 ## Syncing PEP 8 changes
 

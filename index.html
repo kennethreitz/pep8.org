@@ -307,6 +307,8 @@ if (this_is_one_thing
         and that_is_another_thing):
     do_something()</code></pre>
 
+<p>(Also see the discussion of whether to break before or after binary operators below.)</p>
+
 <p>The closing brace/bracket/parenthesis on multi-line constructs may either line up under the first non-whitespace character of the last line of list, as in:</p>
 
 <pre><code class="language-python">my_list = [
@@ -533,6 +535,16 @@ import sys
 
 </li>
 
+<li><p>Between a trailing comma and a following close parenthesis. :</p>
+
+<p class="yes"><span>Yes:</span></p>
+<pre><code class="language-python">foo = (0,)</code></pre>
+
+<p class="no"><span>No:</span></p>
+<pre><code class="language-python">bar = (0, )</code></pre>
+
+</li>
+
 <li><p>Immediately before a comma, semicolon, or colon:</p>
 
 <p class="yes"><span>Yes:</span></p>
@@ -695,6 +707,37 @@ if foo == &#39;blah&#39;: one(); two(); three()</code></pre></li>
 </ul>
 
 
+<h1 id="when-to-use-trailing-commas">When to use trailing commas</h1>
+
+
+<p>Trailing commas are usually optional, except they are mandatory when making a tuple of one element (and in Python 2 they have semantics for the <code>print</code> statement).  For clarity, it is recommended to surround the latter in (technically redundant) parentheses.</p>
+
+<p class="yes"><span>Yes:</span></p>
+
+<pre><code class="language-python">FILES = ('setup.cfg',)</code></pre>
+
+<p>OK, but confusing:</p>
+
+<pre><code class="language-python">FILES = 'setup.cfg',</code></pre>
+
+<p>When trailing commas are redundant, they are often helpful when a version control system is used, when a list of values, arguments or imported items is expected to be extended over time. The pattern is to put each value (etc.) on a line by itself, always adding a trailing comma, and add the close parenthesis/bracket/brace on the next line. However it does not make sense to have a trailing comma on the same line as the closing delimiter (except in the above case of singleton tuples).</p>
+
+<p class="yes"><span>Yes:</span></p>
+
+<pre><code class="language-python">FILES = [
+    'setup.cfg',
+    'tox.ini',
+    ]
+initialize(FILES,
+           error=True,
+           )</code></pre>
+
+<p class="no"><span>No:</span></p>
+
+<pre><code class="language-python">FILES = ['setup.cfg', 'tox.ini',]
+initialize(FILES, error=True,)</code></pre>
+
+
 <h1 id="comments">Comments</h1>
 
 
@@ -782,7 +825,10 @@ Optional plotz says to frobnicate the bizbaz first.
 <li><code>UPPERCASE</code></li>
 <li><code>UPPER_CASE_WITH_UNDERSCORES</code></li>
 
-<li><code>CapitalizedWords</code> (or CapWords, CamelCase<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>, StudlyCaps)</li>
+<li>
+<code>CapitalizedWords</code> (or CapWords, CamelCase<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>, StudlyCaps)
+<p><strong>Note:</strong> When using abbreviations in CapWords, capitalize all the letters of the abbreviation. Thus HTTPServerError is better than HttpServerError.</p>
+</li>
 
 <li><code>mixedCase</code> (differs from CapitalizedWords by initial lowercase character!)</li>
 
@@ -831,6 +877,12 @@ Optional plotz says to frobnicate the bizbaz first.
 <p>In some fonts, these characters are indistinguishable from the numerals one and zero. When tempted to use ‘l’, use ‘L’ instead.</p>
 
 
+<h3 id="ascii-compatibility">ASCII Compatibility</h3>
+
+
+<p>Identifiers used in the standard library must be ASCII compatible as described in the <a href="https://www.python.org/dev/peps/pep-3131/#policy-specification">policy section</a> of <a href="https://www.python.org/dev/peps/pep-3131">PEP 3131</a>.</p>
+
+
 <h3 id="package-and-module-names">Package and Module Names</h3>
 
 
@@ -849,13 +901,8 @@ Optional plotz says to frobnicate the bizbaz first.
 <p>Note that there is a separate convention for builtin names: most builtin names are single words (or two words run together), with the CapWords convention used only for exception names and builtin constants.</p>
 
 
-<h3 id="exception-names">Exception Names</h3>
-
-
-<p>Because exceptions should be classes, the class naming convention applies here. However, you should use the suffix “Error” on your exception names (if the exception actually is an error).</p>
-
-
 <h3 id="type-variable-names">Type variable names</h3>
+
 
 <p>Names of type variables introduced in PEP 484 should normally use CapWords
 preferring short names: <code>T</code>, <code>AnyStr</code>, <code>Num</code>. It is recommended to add
@@ -866,6 +913,12 @@ or contravariant behavior correspondingly. Examples</p>
 
   VT_co = TypeVar('VT_co', covariant=True)
   KT_contra = TypeVar('KT_contra', contravariant=True)</code></pre>
+
+
+<h3 id="exception-names">Exception Names</h3>
+
+
+<p>Because exceptions should be classes, the class naming convention applies here. However, you should use the suffix “Error” on your exception names (if the exception actually is an error).</p>
 
 
 <h3 id="global-variable-names">Global Variable Names</h3>
@@ -1129,14 +1182,21 @@ def bar(x):
 
 <p><code>startswith()</code> and <code>endswith()</code> are cleaner and less error prone. For example:</p>
 
-<pre><code class="language-python">Yes: if foo.startswith(&#39;bar&#39;):
-No:  if foo[:3] == &#39;bar&#39;:</code></pre></li>
+
+<p class="yes"><span>Yes:</span></p>
+<pre><code class="language-python">if foo.startswith(&#39;bar&#39;):</code></pre>
+
+<p class="no"><span>No:</span></p>
+<pre><code class="language-python">if foo[:3] == &#39;bar&#39;:</code></pre>
+</li>
 
 <li><p>Object type comparisons should always use <code>isinstance()</code> instead of comparing types directly. :</p>
 
-<pre><code class="language-python">Yes: if isinstance(obj, int):
+<p class="yes"><span>Yes:</span></p>
+<pre><code class="language-python">if isinstance(obj, int):</code></pre>
 
-No:  if type(obj) is type(1):</code></pre>
+<p class="no"><span>No:</span></p>
+<pre><code class="language-python">if type(obj) is type(1):</code></pre>
 
 <p>When checking if an object is a string, keep in mind that it might be a unicode string too! In Python 2, str and unicode have a common base class, basestring, so you can do:</p>
 
@@ -1146,11 +1206,14 @@ No:  if type(obj) is type(1):</code></pre>
 
 <li><p>For sequences, (strings, lists, tuples), use the fact that empty sequences are false. :</p>
 
-<pre><code class="language-python">Yes: if not seq:
-     if seq:
+<p class="yes"><span>Yes:</span></p>
+<pre><code class="language-python">if not seq:
+if seq:</code></pre>
 
-No: if len(seq):
-    if not len(seq):</code></pre></li>
+<p class="no"><span>No:</span></p>
+<pre><code class="language-python">if len(seq):
+if not len(seq):</code></pre>
+</li>
 
 <li>Don’t write string literals that rely on significant trailing whitespace. Such trailing whitespace is visually indistinguishable and some editors (or more recently, reindent.py) will trim them.</li>
 
@@ -1179,7 +1242,7 @@ No: if len(seq):
 
 <li>The experimentation with annotation styles that was recommended previously in this PEP is no longer encouraged.</li>
 <p></p>
-<li>However, outside the stdlib, experiments within the rules of <a href="https://www.python.org/dev/peps/pep-0484/">PEP 484</a> are now encouraged. For example, marking up a large third party library or application with <a href="https://www.python.org/dev/peps/pep-0484/">PEP 484</a> style type annotations, reviewing how easy it was to add those annotations, and observing whether their presence increases code understandabilty.</li>
+<li>However, outside the stdlib, experiments within the rules of <a href="https://www.python.org/dev/peps/pep-0484/">PEP 484</a> are now encouraged. For example, marking up a large third party library or application with <a href="https://www.python.org/dev/peps/pep-0484/">PEP 484</a> style type annotations, reviewing how easy it was to add those annotations, and observing whether their presence increases code understandability.</li>
 <p></p>
 <li>The Python standard library should be conservative in adopting such annotations, but their use is allowed for new code and for big refactorings.</li>
 <p></p>
@@ -1193,7 +1256,7 @@ No: if len(seq):
 <p></p>
 <li>Users who don’t want to use type checkers are free to ignore them. However, it is expected that users of third party library packages may want to run type checkers over those packages. For this purpose <a href="https://www.python.org/dev/peps/pep-0484/">PEP 484</a> recommends the use of stub files: .pyi files that are read by the type checker in preference of the corresponding .py files. Stub files can be distributed with a library, or separately (with the library author’s permission) through the typeshed repo <a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>.</li>
 <p></p>
-<li><p>For code that needs to be backwards compatible, function annotations can be added in the form of comments. See the relevant section of PEP 484 <a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>.</p></li>
+<li><p>For code that needs to be backwards compatible, type annotations can be added in the form of comments. See the relevant section of PEP 484 <a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>.</p></li>
 
 </ul>
 

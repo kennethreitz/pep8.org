@@ -21,7 +21,7 @@ Whenever the original PEP 8 at python.org gets updated we need to migrate these 
 
 To migrate the latest changes from the original PEP 8 source do the following:
 
-* Look at the [source control history for the original PEP 8](https://hg.python.org/peps/log/tip/pep-0008.txt) and compare it with what's live on pep8.org. (As of 2017-05 we're tracking rev `c451868df657`.)
+* Look at the [source control history for the original PEP 8](https://github.com/python/peps/commits/master/pep-0008.txt) and compare it with what's live on pep8.org. (As of 2017-09 we're tracking rev `b61bb7d`.)
 
 * Apply the missing changes to `index.html` and create a pull-request to get them reviewed and live on pep8.org
 

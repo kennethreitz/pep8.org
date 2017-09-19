@@ -849,13 +849,8 @@ Optional plotz says to frobnicate the bizbaz first.
 <p>Note that there is a separate convention for builtin names: most builtin names are single words (or two words run together), with the CapWords convention used only for exception names and builtin constants.</p>
 
 
-<h3 id="exception-names">Exception Names</h3>
-
-
-<p>Because exceptions should be classes, the class naming convention applies here. However, you should use the suffix “Error” on your exception names (if the exception actually is an error).</p>
-
-
 <h3 id="type-variable-names">Type variable names</h3>
+
 
 <p>Names of type variables introduced in PEP 484 should normally use CapWords
 preferring short names: <code>T</code>, <code>AnyStr</code>, <code>Num</code>. It is recommended to add
@@ -866,6 +861,12 @@ or contravariant behavior correspondingly. Examples</p>
 
   VT_co = TypeVar('VT_co', covariant=True)
   KT_contra = TypeVar('KT_contra', contravariant=True)</code></pre>
+
+
+<h3 id="exception-names">Exception Names</h3>
+
+
+<p>Because exceptions should be classes, the class naming convention applies here. However, you should use the suffix “Error” on your exception names (if the exception actually is an error).</p>
 
 
 <h3 id="global-variable-names">Global Variable Names</h3>

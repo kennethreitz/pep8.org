@@ -533,6 +533,16 @@ import sys
 
 </li>
 
+<li><p>Between a trailing comma and a following close parentheses. :</p>
+
+<p class="yes"><span>Yes:</span></p>
+<pre><code class="language-python">foo = (0,)</code></pre>
+
+<p class="no"><span>No:</span></p>
+<pre><code class="language-python">bar = (0, )</code></pre>
+
+</li>
+
 <li><p>Immediately before a comma, semicolon, or colon:</p>
 
 <p class="yes"><span>Yes:</span></p>
@@ -695,6 +705,37 @@ if foo == &#39;blah&#39;: one(); two(); three()</code></pre></li>
 </ul>
 
 
+<h1 id="when-to-use-trailing-commas">When to use trailing commas</h1>
+
+
+<p>Trailing commas are usually optional, except they are mandatory when making a tuple of one element (and in Python 2 they have semantics for the <code>print</code> statement).  For clarity, it is recommended to surround the latter in (technically redundant) parentheses.</p>
+
+<p class="yes"><span>Yes:</span></p>
+
+<pre><code class="language-python">FILES = ('setup.cfg',)</code></pre>
+
+<p>OK, but confusing:</p>
+
+<pre><code class="language-python">FILES = 'setup.cfg',</code></pre>
+
+<p>When trailing commas are redundant, they are often helpful when a version control system is used, when a list of values, arguments or imported items is expected to be extended over time. The pattern is to put each value (etc.) on a line by itself, always adding a trailing comma, and add the close parenthesis/bracket/brace on the next line. However it does not make sense to have a trailing comma on the same line as the closing delimiter (except in the above case of singleton tuples).</p>
+
+<p class="yes"><span>Yes:</span></p>
+
+<pre><code class="language-python">FILES = [
+    'setup.cfg',
+    'tox.ini',
+    ]
+initialize(FILES,
+           error=True,
+           )</code></pre>
+
+<p class="no"><span>No:</span></p>
+
+<pre><code class="language-python">FILES = ['setup.cfg', 'tox.ini',]
+initialize(FILES, error=True,)</code></pre>
+
+          
 <h1 id="comments">Comments</h1>
 
 

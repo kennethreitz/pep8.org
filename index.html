@@ -875,7 +875,7 @@ Optional plotz says to frobnicate the bizbaz first.
 <h3 id="ascii-compatibility">ASCII Compatibility</h3>
 
 
-<p>Identifiers used in the standard library must be ASCII compatible as described in the <p><a href="https://www.python.org/dev/peps/pep-3131/#policy-specification">policy section</a> of PEP 3131.</p>
+<p>Identifiers used in the standard library must be ASCII compatible as described in the <a href="https://www.python.org/dev/peps/pep-3131/#policy-specification">policy section</a> of PEP 3131.</p>
 
 
 <h3 id="package-and-module-names">Package and Module Names</h3>
@@ -1177,14 +1177,21 @@ def bar(x):
 
 <p><code>startswith()</code> and <code>endswith()</code> are cleaner and less error prone. For example:</p>
 
-<pre><code class="language-python">Yes: if foo.startswith(&#39;bar&#39;):
-No:  if foo[:3] == &#39;bar&#39;:</code></pre></li>
+
+<p class="yes"><span>Yes:</span></p>
+<pre><code class="language-python">if foo.startswith(&#39;bar&#39;):</code></pre>
+
+<p class="no"><span>No:</span></p>
+<pre><code class="language-python">if foo[:3] == &#39;bar&#39;:</code></pre>
+</li>
 
 <li><p>Object type comparisons should always use <code>isinstance()</code> instead of comparing types directly. :</p>
 
-<pre><code class="language-python">Yes: if isinstance(obj, int):
+<p class="yes"><span>Yes:</span></p>
+<pre><code class="language-python">if isinstance(obj, int):</code></pre>
 
-No:  if type(obj) is type(1):</code></pre>
+<p class="no"><span>No:</span></p>
+<pre><code class="language-python">if type(obj) is type(1):</code></pre>
 
 <p>When checking if an object is a string, keep in mind that it might be a unicode string too! In Python 2, str and unicode have a common base class, basestring, so you can do:</p>
 
@@ -1194,11 +1201,14 @@ No:  if type(obj) is type(1):</code></pre>
 
 <li><p>For sequences, (strings, lists, tuples), use the fact that empty sequences are false. :</p>
 
-<pre><code class="language-python">Yes: if not seq:
-     if seq:
+<p class="yes"><span>Yes:</span></p>
+<pre><code class="language-python">if not seq:
+if seq:</code></pre>
 
-No: if len(seq):
-    if not len(seq):</code></pre></li>
+<p class="no"><span>No:</span></p>
+<pre><code class="language-python">if len(seq):
+if not len(seq):</code></pre>
+</li>
 
 <li>Don’t write string literals that rely on significant trailing whitespace. Such trailing whitespace is visually indistinguishable and some editors (or more recently, reindent.py) will trim them.</li>
 

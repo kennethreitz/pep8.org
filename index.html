@@ -420,7 +420,7 @@ income = (gross_wages
 
 <p>In the standard library, non-default encodings should be used only for test purposes or when a comment or docstring needs to mention an author name that contains non-ASCII characters; otherwise, using <code>\x</code>, <code>\u</code>, <code>\U</code>, or <code>\N</code> escapes is the preferred way to include non-ASCII data in string literals.</p>
 
-<p>For Python 3.0 and beyond, the following policy is prescribed for the standard library (see PEP 3131): All identifiers in the Python standard library MUST use ASCII-only identifiers, and SHOULD use English words wherever feasible (in many cases, abbreviations and technical terms are used which aren’t English). In addition, string literals and comments must also be in ASCII. The only exceptions are (a) test cases testing the non-ASCII features, and (b) names of authors. Authors whose names are not based on the latin alphabet MUST provide a latin transliteration of their names.</p>
+<p>For Python 3.0 and beyond, the following policy is prescribed for the standard library (see <a href="https://www.python.org/dev/peps/pep-3131">PEP 3131</a>): All identifiers in the Python standard library MUST use ASCII-only identifiers, and SHOULD use English words wherever feasible (in many cases, abbreviations and technical terms are used which aren’t English). In addition, string literals and comments must also be in ASCII. The only exceptions are (a) test cases testing the non-ASCII features, and (b) names of authors. Authors whose names are not based on the latin alphabet MUST provide a latin transliteration of their names.</p>
 
 <p>Open source projects with a global audience are encouraged to adopt a similar policy.</p>
 
@@ -824,14 +824,8 @@ Optional plotz says to frobnicate the bizbaz first.
 <li><code>lower_case_with_underscores</code></li>
 <li><code>UPPERCASE</code></li>
 <li><code>UPPER_CASE_WITH_UNDERSCORES</code></li>
-
-<li>
-<code>CapitalizedWords</code> (or CapWords, CamelCase<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>, StudlyCaps)
-<p><strong>Note:</strong> When using abbreviations in CapWords, capitalize all the letters of the abbreviation. Thus HTTPServerError is better than HttpServerError.</p>
-</li>
-
+<li><code>CapitalizedWords</code> (or CapWords, CamelCase<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>, StudlyCaps)</li>
 <li><code>mixedCase</code> (differs from CapitalizedWords by initial lowercase character!)</li>
-
 <li><code>Capitalized_Words_With_Underscores</code> (ugly!)</li>
 
 </ul>

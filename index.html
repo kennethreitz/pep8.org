@@ -525,7 +525,7 @@ import sys
 
 <ul>
 
-<li><p>Immediately inside parentheses, brackets or braces. :</p>
+<li><p>Immediately inside parentheses, brackets or braces:</p>
 
 <p class="yes"><span>Yes:</span></p>
 <pre><code class="language-python">spam(ham[1], {eggs: 2})</code></pre>
@@ -535,7 +535,7 @@ import sys
 
 </li>
 
-<li><p>Between a trailing comma and a following close parenthesis. :</p>
+<li><p>Between a trailing comma and a following close parenthesis:</p>
 
 <p class="yes"><span>Yes:</span></p>
 <pre><code class="language-python">foo = (0,)</code></pre>
@@ -854,7 +854,7 @@ Optional plotz says to frobnicate the bizbaz first.
 
 <li><code>_single_leading_underscore</code>: weak “internal use” indicator. E.g. <code>from M import *</code> does not import objects whose name starts with an underscore.</li>
 <p></p>
-<li><p><code>single_trailing_underscore_</code>: used by convention to avoid conflicts with Python keyword, e.g. :</p>
+<li><p><code>single_trailing_underscore_</code>: used by convention to avoid conflicts with Python keyword, e.g.:</p>
 
 <pre><code class="language-python">Tkinter.Toplevel(master, class_=&#39;ClassName&#39;)</code></pre></li>
 
@@ -1190,7 +1190,7 @@ def bar(x):
 <pre><code class="language-python">if foo[:3] == &#39;bar&#39;:</code></pre>
 </li>
 
-<li><p>Object type comparisons should always use <code>isinstance()</code> instead of comparing types directly. :</p>
+<li><p>Object type comparisons should always use <code>isinstance()</code> instead of comparing types directly:</p>
 
 <p class="yes"><span>Yes:</span></p>
 <pre><code class="language-python">if isinstance(obj, int):</code></pre>
@@ -1204,7 +1204,7 @@ def bar(x):
 
 <p>Note that in Python 3, <code>unicode</code> and <code>basestring</code> no longer exist (there is only <code>str</code>) and a bytes object is no longer a kind of string (it is a sequence of integers instead)</p></li>
 
-<li><p>For sequences, (strings, lists, tuples), use the fact that empty sequences are false. :</p>
+<li><p>For sequences, (strings, lists, tuples), use the fact that empty sequences are false:</p>
 
 <p class="yes"><span>Yes:</span></p>
 <pre><code class="language-python">if not seq:
@@ -1217,7 +1217,7 @@ if not len(seq):</code></pre>
 
 <li>Don’t write string literals that rely on significant trailing whitespace. Such trailing whitespace is visually indistinguishable and some editors (or more recently, reindent.py) will trim them.</li>
 
-<li><p>Don’t compare boolean values to True or False using <code>==</code>. :</p>
+<li><p>Don’t compare boolean values to True or False using <code>==</code>:</p>
 
 <p class="yes"><span>Yes:</span></p>
 <pre><code class="language-python">if greeting:</code></pre>

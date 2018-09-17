@@ -2,6 +2,9 @@
 
 PEP 8, for Humans.
 
+---------------
+If you're interested in financially supporting Kenneth Reitz open source, consider `visiting this link <https://cash.me/$KennethReitz>`_. Your support helps tremendously with sustainability of motivation, as Open Source is no longer part of my day job.
+
 ## Developing
 
 If you serve this locally from `0.0.0.0`, the fonts will display properly. They are blocked on all domains except `0.0.0.0` and `pep8.org`.

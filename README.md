@@ -3,7 +3,8 @@
 PEP 8, for Humans.
 
 ---------------
-If you're interested in financially supporting Kenneth Reitz open source, consider `visiting this link <https://cash.me/$KennethReitz>`_. Your support helps tremendously with sustainability of motivation, as Open Source is no longer part of my day job.
+
+**If you're interested in financially supporting Kenneth Reitz open source, consider [visiting this link](https://cash.me/$KennethReitz). Your support helps tremendously with sustainability of motivation, as Open Source is no longer part of my day job.**
 
 ## Developing
 

@@ -1,5 +1,5 @@
 [Settings]
-ID = "pep8org-mislav"
+ID = "pep8org"
 
 [build]
   base    = "/"

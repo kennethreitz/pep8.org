@@ -29,6 +29,6 @@ To migrate the latest changes from the original PEP 8 source do the following:
 
 * Apply the missing changes to `index.html` and create a pull-request to get them reviewed and live on pep8.org
 
-## Deploying
+## Deployment
 
-    $ heroku buildpacks:set https://github.com/hone/heroku-buildpack-static.git
+Automatically deployed on Netlify on each push to master.

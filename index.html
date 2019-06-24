@@ -923,10 +923,12 @@ or contravariant behavior correspondingly. Examples</p>
 <p>Modules that are designed for use via <code>from M import *</code> should use the <code>__all__</code> mechanism to prevent exporting globals, or use the older convention of prefixing such globals with an underscore (which you might want to do to indicate these globals are “module non-public”).</p>
 
 
-<h3 id="function-names">Function Names</h3>
+<h3 id="function-and-variable-names">Function and variable names</h3>
 
 
 <p>Function names should be lowercase, with words separated by underscores as necessary to improve readability.</p>
+
+<p>Variable names follow the same convention as function names.</p>
 
 <p>mixedCase is allowed only in contexts where that’s already the prevailing style (e.g. threading.py), to retain backwards compatibility.</p>
 

@@ -309,7 +309,7 @@ if (this_is_one_thing
 
 <p>(Also see the discussion of whether to break before or after binary operators below.)</p>
 
-<p>The closing brace/bracket/parenthesis on multi-line constructs may either line up under the first non-whitespace character of the last line of list, as in:</p>
+<p>The closing brace/bracket/parenthesis on multiline constructs may either line up under the first non-whitespace character of the last line of list, as in:</p>
 
 <pre><code class="language-python">my_list = [
     1, 2, 3,
@@ -319,7 +319,7 @@ result = some_function_that_takes_arguments(
     &#39;a&#39;, &#39;b&#39;, &#39;c&#39;,
     &#39;d&#39;, &#39;e&#39;, &#39;f&#39;,
     )</code></pre>
-<p>or it may be lined up under the first character of the line that starts the multi-line construct, as in:</p>
+<p>or it may be lined up under the first character of the line that starts the multiline construct, as in:</p>
 <pre><code class="language-python">my_list = [
     1, 2, 3,
     4, 5, 6,
@@ -420,7 +420,7 @@ income = (gross_wages
 
 <p>In the standard library, non-default encodings should be used only for test purposes or when a comment or docstring needs to mention an author name that contains non-ASCII characters; otherwise, using <code>\x</code>, <code>\u</code>, <code>\U</code>, or <code>\N</code> escapes is the preferred way to include non-ASCII data in string literals.</p>
 
-<p>For Python 3.0 and beyond, the following policy is prescribed for the standard library (see <a href="https://www.python.org/dev/peps/pep-3131">PEP 3131</a>): All identifiers in the Python standard library MUST use ASCII-only identifiers, and SHOULD use English words wherever feasible (in many cases, abbreviations and technical terms are used which aren’t English). In addition, string literals and comments must also be in ASCII. The only exceptions are (a) test cases testing the non-ASCII features, and (b) names of authors. Authors whose names are not based on the latin alphabet MUST provide a latin transliteration of their names.</p>
+<p>For Python 3.0 and beyond, the following policy is prescribed for the standard library (see <a href="https://www.python.org/dev/peps/pep-3131">PEP 3131</a>): All identifiers in the Python standard library MUST use ASCII-only identifiers, and SHOULD use English words wherever feasible (in many cases, abbreviations and technical terms are used which aren’t English). In addition, string literals and comments must also be in ASCII. The only exceptions are (a) test cases testing the non-ASCII features, and (b) names of authors. Authors whose names are not based on the Latin alphabet (latin-1, ISO/IEC 8859-1 character set) MUST provide a transliteration of their names in this character set.</p>
 
 <p>Open source projects with a global audience are encouraged to adopt a similar policy.</p>
 
@@ -743,11 +743,11 @@ initialize(FILES, error=True,)</code></pre>
 
 <p>Comments that contradict the code are worse than no comments. Always make a priority of keeping the comments up-to-date when the code changes!</p>
 
-<p>Comments should be complete sentences. If a comment is a phrase or sentence, its first word should be capitalized, unless it is an identifier that begins with a lower case letter (never alter the case of identifiers!).</p>
+<p>Comments should be complete sentences. The first word should be capitalized, unless it is an identifier that begins with a lower case letter (never alter the case of identifiers!).</p>
 
-<p>If a comment is short, the period at the end can be omitted. Block comments generally consist of one or more paragraphs built out of complete sentences, and each sentence should end in a period.</p>
+<p>Block comments generally consist of one or more paragraphs built out of complete sentences, with each sentence ending in a period.</p>
 
-<p>You should use two spaces after a sentence-ending period.</p>
+<p>You should use two spaces after a sentence-ending period in multi-sentence comments, except after the final sentence.</p>
 
 <p>When writing English, follow Strunk and White.</p>
 
@@ -833,7 +833,7 @@ Optional plotz says to frobnicate the bizbaz first.
 <div style="margin-left: -1.5em; padding-bottom: 1em;" class="row">
 
 <div class="one column"><strong><small>Note:</small></strong></div>
-<div class="eight columns"><p>When using abbreviations in CapWords, capitalize all the letters of the abbreviation. Thus <code>HTTPServerError</code> is better than <code>HttpServerError</code>.</p></div>
+<div class="eight columns"><p>When using acronyms in CapWords, capitalize all the letters of the acronyms. Thus <code>HTTPServerError</code> is better than <code>HttpServerError</code>.</p></div>
 
 
 </div>
@@ -923,10 +923,12 @@ or contravariant behavior correspondingly. Examples</p>
 <p>Modules that are designed for use via <code>from M import *</code> should use the <code>__all__</code> mechanism to prevent exporting globals, or use the older convention of prefixing such globals with an underscore (which you might want to do to indicate these globals are “module non-public”).</p>
 
 
-<h3 id="function-names">Function Names</h3>
+<h3 id="function-and-variable-names">Function and variable names</h3>
 
 
 <p>Function names should be lowercase, with words separated by underscores as necessary to improve readability.</p>
+
+<p>Variable names follow the same convention as function names.</p>
 
 <p>mixedCase is allowed only in contexts where that’s already the prevailing style (e.g. threading.py), to retain backwards compatibility.</p>
 

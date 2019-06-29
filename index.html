@@ -1235,7 +1235,7 @@ if not len(seq):</code></pre>
 <ul>
 
 <li>In order to be forward compatible, function annotations in Python 3 code should preferably use <a href="https://www.python.org/dev/peps/pep-0484/">PEP 484</a> syntax. (There are some formatting recommendations for annotations in the previous section.)</li>
-
+<p></p>
 <li>The experimentation with annotation styles that was recommended previously in this PEP is no longer encouraged.</li>
 <p></p>
 <li>However, outside the stdlib, experiments within the rules of <a href="https://www.python.org/dev/peps/pep-0484/">PEP 484</a> are now encouraged. For example, marking up a large third party library or application with <a href="https://www.python.org/dev/peps/pep-0484/">PEP 484</a> style type annotations, reviewing how easy it was to add those annotations, and observing whether their presence increases code understandability.</li>
@@ -1254,6 +1254,37 @@ if not len(seq):</code></pre>
 <p></p>
 <li><p>For code that needs to be backwards compatible, type annotations can be added in the form of comments. See the relevant section of PEP 484 <a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>.</p></li>
 
+</ul>
+
+
+<h2 id="variable-annotations">Variable annotations</h2>
+
+
+<p><a href="https://www.python.org/dev/peps/pep-0526">PEP 526</a> introduced variable annotations. The style recommendations for them are similar to those on function annotations described above:</p>
+<ul>
+<li>Annotations for module level variables, class and instance variables, and local variables should have a single space after the colon.</li>
+<p></p>
+<li>There should be no space before the colon.</li>
+<p></p>
+<li>If an assignment has a right hand side, then the equality sign should have exactly one space on both sides.</li>
+<p></p>
+<li>
+<p class="yes"><span>Yes:</span></p>
+<pre><code class="language-python">code: int
+
+class Point:
+    coords: Tuple[int, int]
+    label: str = '&ltunknown&gt'</code></pre>
+</li>
+<li>
+<p class="no"><span>No:</span></p>
+<pre><code class="language-python">code:int  # No space after colon
+code : int  # Space before colon
+
+class Test:
+    result: int=0  # No spaces around equality sign</code></pre>
+</li>
+<li>Although the <a href="https://www.python.org/dev/peps/pep-0526">PEP 526</a> is accepted for Python 3.6, the variable annotation syntax is the preferred syntax for stub files on all versions of Python (see <a href="https://www.python.org/dev/peps/pep-0484">PEP 484</a> for details).</li>
 </ul>
 
 <hr />

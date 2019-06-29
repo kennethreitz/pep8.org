@@ -630,18 +630,6 @@ x = x * 2 - 1
 hypot2 = x * x + y * y
 c = (a + b) * (a - b)</code></pre></li>
 
-<li><p>Don’t use spaces around the <code>=</code> sign when used to indicate a keyword argument or a default parameter value.</p>
-
-<p class="yes"><span>Yes:</span></p>
-
-<pre><code class="language-python">def complex(real, imag=0.0):
-    return magic(r=real, i=imag)</code></pre>
-
-<p class="no"><span>No:</span></p>
-
-<pre><code class="language-python">def complex(real, imag = 0.0):
-    return magic(r = real, i = imag)</code></pre></li>
-
 <li><p>Function annotations should use the normal rules for colons and always have spaces around the <code>-&gt;</code> arrow if present. (See <a href="#function-annotations">Function Annotations</a> below for more about function annotations.)</p>
 
 <p class="yes"><span>Yes:</span></p>
@@ -654,7 +642,19 @@ def munge() -&gt; AnyStr: ...</code></pre>
 <pre><code class="language-python">def munge(input:AnyStr): ...
 def munge()-&gt;PosInt: ...</code></pre></li>
 
-<li><p>When combining an argument annotation with a default value, use spaces around the <code>=</code> sign (but only for those arguments that have both an annotation and a default).</p>
+<li><p>Don’t use spaces around the <code>=</code> sign when used to indicate a keyword argument,or when used to indicate a default value for an <em>unannotated</em> function parameter.</p>
+
+<p class="yes"><span>Yes:</span></p>
+
+<pre><code class="language-python">def complex(real, imag=0.0):
+    return magic(r=real, i=imag)</code></pre>
+
+<p class="no"><span>No:</span></p>
+
+<pre><code class="language-python">def complex(real, imag = 0.0):
+    return magic(r = real, i = imag)</code></pre></li>
+  
+<li><p>When combining an argument annotation with a default value, however, do use spaces around the <code>=</code> sign:</p>
 
 <p class="yes"><span>Yes:</span></p>
 

@@ -239,7 +239,7 @@ ul > li {
 
 
 
-<h1 id="code-lay-out">Code lay-out</h1>
+<h1 id="code-lay-out">Code Lay-out</h1>
 
 
 <h2 id="indentation">Indentation</h2>
@@ -429,7 +429,7 @@ income = (gross_wages
 
 <ul>
 
-<li><p>Imports should usually be on separate lines, e.g.:</p>
+<li><p>Imports should usually be on separate lines</p>
 
 <p class="yes"><span>Yes:</span></p>
 <pre><code class="language-python">import os
@@ -474,7 +474,7 @@ from .sibling import example</code></pre>
 <pre><code class="language-python">from myclass import MyClass
 from foo.bar.yourclass import YourClass</code></pre>
 
-<p>If this spelling causes local name clashes, then spell them :</p>
+<p>If this spelling causes local name clashes, then spell them explicitly :</p>
 
 <pre><code class="language-python">import myclass
 import foo.bar.yourclass</code></pre>
@@ -486,11 +486,9 @@ import foo.bar.yourclass</code></pre>
 <p>When republishing names this way, the guidelines below regarding public and internal interfaces still apply.</p></li>
 </ul>
 
-<h2 id="module-level-dunder-names">Module level dunder names</h2>
+<h2 id="module-level-dunder-names">Module Level Dunder Names</h2>
 
 <p>Module level "dunders" (i.e. names with two leading and two trailing underscores) such as <code>__all__</code>, <code>__author__</code>, <code>__version__</code>, etc. should be placed after the module docstring but before any import statements <em>except</em> <code>from __future__</code> imports. Python mandates that future-imports must appear in the module before any other code except docstrings.</p>
-
-<p>For example:</p>
 
 <pre><code class="language-python">"""This is the example module.
 
@@ -786,7 +784,7 @@ initialize(FILES, error=True,)</code></pre>
 
 <li>Write docstrings for all public modules, functions, classes, and methods. Docstrings are not necessary for non-public methods, but you should have a comment that describes what the method does. This comment should appear after the <code>def</code> line.</li>
 <p></p>
-<li><p><a href="https://www.python.org/dev/peps/pep-0257/">PEP 257</a> describes good docstring conventions. Note that most importantly, the <code>&quot;&quot;&quot;</code> that ends a multiline docstring should be on a line by itself, e.g.:</p>
+<li><p><a href="https://www.python.org/dev/peps/pep-0257/">PEP 257</a> describes good docstring conventions. Note that most importantly, the <code>&quot;&quot;&quot;</code> that ends a multiline docstring should be on a line by itself:</p>
 
 <pre><code class="language-python">&quot;&quot;&quot;Return a foobang
 
@@ -901,7 +899,7 @@ Optional plotz says to frobnicate the bizbaz first.
 <p>Names of type variables introduced in PEP 484 should normally use CapWords
 preferring short names: <code>T</code>, <code>AnyStr</code>, <code>Num</code>. It is recommended to add
 suffixes <code>_co</code> or <code>_contra</code> to the variables used to declare covariant
-or contravariant behavior correspondingly. Examples</p>
+or contravariant behavior correspondingly.</p>
 
   <pre class='language-python'><code class='language-python'>from typing import TypeVar
 
@@ -963,7 +961,7 @@ or contravariant behavior correspondingly. Examples</p>
 <p>Constants are usually defined on a module level and written in all capital letters with underscores separating words. Examples include <code>MAX_OVERFLOW</code> and <code>TOTAL</code>.</p>
 
 
-<h3 id="designing-for-inheritance">Designing for inheritance</h3>
+<h3 id="designing-for-inheritance">Designing for Inheritance</h3>
 
 
 <p>Always decide whether a class’s methods and instance variables (collectively: “attributes”) should be public or non-public. If in doubt, choose non-public; it’s easier to make it public later than to make a public attribute non-public.</p>
@@ -1079,8 +1077,6 @@ or contravariant behavior correspondingly. Examples</p>
 
 <li><p>When catching exceptions, mention specific exceptions whenever possible instead of using a bare <code>except:</code> clause.</p>
 
-<p>For example, use:</p>
-
 <pre><code class="language-python">try:
     import platform_specific_module
 except ImportError:
@@ -1130,7 +1126,7 @@ except KeyError:
 
 <li>When a resource is local to a particular section of code, use a <code>with</code> statement to ensure it is cleaned up promptly and reliably after use. A try/finally statement is also acceptable.</li>
 
-<li><p>Context managers should be invoked through separate functions or methods whenever they do something other than acquire and release resources. For example:</p>
+<li><p>Context managers should be invoked through separate functions or methods whenever they do something other than acquire and release resources.</p>
 
 <p class="yes"><span>Yes:</span></p>
 
@@ -1176,7 +1172,7 @@ def bar(x):
 
 <li><p>Use <code>''.startswith()</code> and <code>''.endswith()</code> instead of string slicing to check for prefixes or suffixes.</p>
 
-<p><code>startswith()</code> and <code>endswith()</code> are cleaner and less error prone. For example:</p>
+<p><code>startswith()</code> and <code>endswith()</code> are cleaner and less error prone.</p>
 
 
 <p class="yes"><span>Yes:</span></p>
@@ -1257,7 +1253,7 @@ if not len(seq):</code></pre>
 </ul>
 
 
-<h2 id="variable-annotations">Variable annotations</h2>
+<h2 id="variable-annotations">Variable Annotations</h2>
 
 
 <p><a href="https://www.python.org/dev/peps/pep-0526">PEP 526</a> introduced variable annotations. The style recommendations for them are similar to those on function annotations described above:</p>
@@ -1274,7 +1270,7 @@ if not len(seq):</code></pre>
 
 class Point:
     coords: Tuple[int, int]
-    label: str = '&ltunknown&gt'</code></pre>
+    label: str = '&lt;unknown&gt;'</code></pre>
 </li>
 <li>
 <p class="no"><span>No:</span></p>

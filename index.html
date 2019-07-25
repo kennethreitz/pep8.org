@@ -654,7 +654,7 @@ def munge() -&gt; AnyStr: ...</code></pre>
 <p class="no"><span>No:</span></p>
 
 <pre><code class="language-python">def munge(input:AnyStr): ...
-def munge()-&gt;PosInt: ...</code></pre></li>
+def munge()-&gt;AnyStr: ...</code></pre></li>
 
 <li><p>When combining an argument annotation with a default value, use spaces around the <code>=</code> sign (but only for those arguments that have both an annotation and a default).</p>
 
@@ -665,8 +665,8 @@ def munge(input: AnyStr, sep: AnyStr = None, limit=1000): ...</code></pre>
 
 <p class="no"><span>No:</span></p>
 
-<pre><code class="language-python">def munge(input: AnyStr=None): ...
-def munge(input: AnyStr, limit = 1000): ...</code></pre></li>
+<pre><code class="language-python">def munge(sep: AnyStr=None): ...
+def munge(input: AnyStr, sep: AnyStr=None, limit = 1000): ...</code></pre></li>
 
 <li><p>Compound statements (multiple statements on the same line) are generally discouraged.</p>
 

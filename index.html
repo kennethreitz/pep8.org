@@ -255,7 +255,7 @@ ul > li {
 foo = long_function_name(var_one, var_two,
                          var_three, var_four)
 
-# More indentation included to distinguish this from the rest.
+# Add 4 spaces (an extra level of indentation) to distinguish arguments from the rest.
 def long_function_name(
         var_one, var_two, var_three,
         var_four):
@@ -353,7 +353,7 @@ result = some_function_that_takes_arguments(
 
 <p>The default wrapping in most tools disrupts the visual structure of the code, making it more difficult to understand. The limits are chosen to avoid wrapping in editors with the window width set to 80, even if the tool places a marker glyph in the final column when wrapping lines. Some web based tools may not offer dynamic line wrapping at all.</p>
 
-<p>Some teams strongly prefer a longer line length. For code maintained exclusively or primarily by a team that can reach agreement on this issue, it is okay to increase the nominal line length from 80 to 100 characters (effectively increasing the maximum length to 99 characters), provided that comments and docstrings are still wrapped at 72 characters.</p>
+<p>Some teams strongly prefer a longer line length. For code maintained exclusively or primarily by a team that can reach agreement on this issue, it is okay to increase the line length limit up to 99 characters, provided that comments and docstrings are still wrapped at 72 characters.</p>
 
 <p>The Python standard library is conservative and requires limiting lines to 79 characters (and docstrings/comments to 72).</p>
 
@@ -371,7 +371,7 @@ result = some_function_that_takes_arguments(
 
 <p>Make sure to indent the continued line appropriately.</p>
 
-<h2 id="break-before-or-after-binary-operator">Should a line break before or after a binary operator?</h2>
+<h2 id="break-before-or-after-binary-operator">Should a Line Break Before or After a Binary Operator?</h2>
 
 <p class="no">For decades the recommended style was to break after binary operators. But this can hurt readability in two ways: the operators tend to get scattered across different columns on the screen, and each operator is moved away from its operand and onto the previous line. Here, the eye has to do extra work to tell which items are added and which are subtracted:</p>
 
@@ -429,7 +429,7 @@ income = (gross_wages
 
 <ul>
 
-<li><p>Imports should usually be on separate lines, e.g.:</p>
+<li><p>Imports should usually be on separate lines</p>
 
 <p class="yes"><span>Yes:</span></p>
 <pre><code class="language-python">import os
@@ -447,9 +447,9 @@ import sys</code></pre>
 <p>Imports should be grouped in the following order:</p>
 
 <ol style="list-style-type: decimal">
-<li>standard library imports</li>
-<li>related third party imports</li>
-<li>local application/library specific imports</li>
+<li>Standard library imports</li>
+<li>Related third party imports</li>
+<li>Local application/library specific imports</li>
 </ol>
 
 <p>You should put a blank line between each group of imports.</p>
@@ -474,7 +474,7 @@ from .sibling import example</code></pre>
 <pre><code class="language-python">from myclass import MyClass
 from foo.bar.yourclass import YourClass</code></pre>
 
-<p>If this spelling causes local name clashes, then spell them :</p>
+<p>If this spelling causes local name clashes, then spell them explicitly :</p>
 
 <pre><code class="language-python">import myclass
 import foo.bar.yourclass</code></pre>
@@ -489,8 +489,6 @@ import foo.bar.yourclass</code></pre>
 <h2 id="module-level-dunder-names">Module Level Dunder Names</h2>
 
 <p>Module level "dunders" (i.e. names with two leading and two trailing underscores) such as <code>__all__</code>, <code>__author__</code>, <code>__version__</code>, etc. should be placed after the module docstring but before any import statements <em>except</em> <code>from __future__</code> imports. Python mandates that future-imports must appear in the module before any other code except docstrings.</p>
-
-<p>For example:</p>
 
 <pre><code class="language-python">"""This is the example module.
 
@@ -632,18 +630,6 @@ x = x * 2 - 1
 hypot2 = x * x + y * y
 c = (a + b) * (a - b)</code></pre></li>
 
-<li><p>Don’t use spaces around the <code>=</code> sign when used to indicate a keyword argument or a default parameter value.</p>
-
-<p class="yes"><span>Yes:</span></p>
-
-<pre><code class="language-python">def complex(real, imag=0.0):
-    return magic(r=real, i=imag)</code></pre>
-
-<p class="no"><span>No:</span></p>
-
-<pre><code class="language-python">def complex(real, imag = 0.0):
-    return magic(r = real, i = imag)</code></pre></li>
-
 <li><p>Function annotations should use the normal rules for colons and always have spaces around the <code>-&gt;</code> arrow if present. (See <a href="#function-annotations">Function Annotations</a> below for more about function annotations.)</p>
 
 <p class="yes"><span>Yes:</span></p>
@@ -654,9 +640,21 @@ def munge() -&gt; AnyStr: ...</code></pre>
 <p class="no"><span>No:</span></p>
 
 <pre><code class="language-python">def munge(input:AnyStr): ...
-def munge()-&gt;AnyStr: ...</code></pre></li>
+def munge()-&gt;PosInt: ...</code></pre></li>
 
-<li><p>When combining an argument annotation with a default value, use spaces around the <code>=</code> sign (but only for those arguments that have both an annotation and a default).</p>
+<li><p>Don’t use spaces around the <code>=</code> sign when used to indicate a keyword argument,or when used to indicate a default value for an <em>unannotated</em> function parameter.</p>
+
+<p class="yes"><span>Yes:</span></p>
+
+<pre><code class="language-python">def complex(real, imag=0.0):
+    return magic(r=real, i=imag)</code></pre>
+
+<p class="no"><span>No:</span></p>
+
+<pre><code class="language-python">def complex(real, imag = 0.0):
+    return magic(r = real, i = imag)</code></pre></li>
+  
+<li><p>When combining an argument annotation with a default value, however, do use spaces around the <code>=</code> sign:</p>
 
 <p class="yes"><span>Yes:</span></p>
 
@@ -786,7 +784,7 @@ initialize(FILES, error=True,)</code></pre>
 
 <li>Write docstrings for all public modules, functions, classes, and methods. Docstrings are not necessary for non-public methods, but you should have a comment that describes what the method does. This comment should appear after the <code>def</code> line.</li>
 <p></p>
-<li><p><a href="https://www.python.org/dev/peps/pep-0257/">PEP 257</a> describes good docstring conventions. Note that most importantly, the <code>&quot;&quot;&quot;</code> that ends a multiline docstring should be on a line by itself, e.g.:</p>
+<li><p><a href="https://www.python.org/dev/peps/pep-0257/">PEP 257</a> describes good docstring conventions. Note that most importantly, the <code>&quot;&quot;&quot;</code> that ends a multiline docstring should be on a line by itself:</p>
 
 <pre><code class="language-python">&quot;&quot;&quot;Return a foobang
 
@@ -846,7 +844,7 @@ Optional plotz says to frobnicate the bizbaz first.
 
 <ul>
 
-<li><code>_single_leading_underscore</code>: weak “internal use” indicator. E.g. <code>from M import *</code> does not import objects whose name starts with an underscore.</li>
+<li><code>_single_leading_underscore</code>: weak “internal use” indicator. E.g. <code>from M import *</code> does not import objects whose name start with an underscore.</li>
 <p></p>
 <li><p><code>single_trailing_underscore_</code>: used by convention to avoid conflicts with Python keyword, e.g.:</p>
 
@@ -901,7 +899,7 @@ Optional plotz says to frobnicate the bizbaz first.
 <p>Names of type variables introduced in PEP 484 should normally use CapWords
 preferring short names: <code>T</code>, <code>AnyStr</code>, <code>Num</code>. It is recommended to add
 suffixes <code>_co</code> or <code>_contra</code> to the variables used to declare covariant
-or contravariant behavior correspondingly. Examples</p>
+or contravariant behavior correspondingly.</p>
 
   <pre class='language-python'><code class='language-python'>from typing import TypeVar
 
@@ -968,7 +966,7 @@ or contravariant behavior correspondingly. Examples</p>
 
 <p>Always decide whether a class’s methods and instance variables (collectively: “attributes”) should be public or non-public. If in doubt, choose non-public; it’s easier to make it public later than to make a public attribute non-public.</p>
 
-<p>Public attributes are those that you expect unrelated clients of your class to use, with your commitment to avoid backward incompatible changes. Non-public attributes are those that are not intended to be used by third parties; you make no guarantees that non-public attributes won’t change or even be removed.</p>
+<p>Public attributes are those that you expect unrelated clients of your class to use, with your commitment to avoid backwards incompatible changes. Non-public attributes are those that are not intended to be used by third parties; you make no guarantees that non-public attributes won’t change or even be removed.</p>
 
 <p>We don’t use the term “private” here, since no attribute is really private in Python (without a generally unnecessary amount of work).</p>
 
@@ -1079,8 +1077,6 @@ or contravariant behavior correspondingly. Examples</p>
 
 <li><p>When catching exceptions, mention specific exceptions whenever possible instead of using a bare <code>except:</code> clause.</p>
 
-<p>For example, use:</p>
-
 <pre><code class="language-python">try:
     import platform_specific_module
 except ImportError:
@@ -1130,7 +1126,7 @@ except KeyError:
 
 <li>When a resource is local to a particular section of code, use a <code>with</code> statement to ensure it is cleaned up promptly and reliably after use. A try/finally statement is also acceptable.</li>
 
-<li><p>Context managers should be invoked through separate functions or methods whenever they do something other than acquire and release resources. For example:</p>
+<li><p>Context managers should be invoked through separate functions or methods whenever they do something other than acquire and release resources.</p>
 
 <p class="yes"><span>Yes:</span></p>
 
@@ -1176,7 +1172,7 @@ def bar(x):
 
 <li><p>Use <code>''.startswith()</code> and <code>''.endswith()</code> instead of string slicing to check for prefixes or suffixes.</p>
 
-<p><code>startswith()</code> and <code>endswith()</code> are cleaner and less error prone. For example:</p>
+<p><code>startswith()</code> and <code>endswith()</code> are cleaner and less error prone.</p>
 
 
 <p class="yes"><span>Yes:</span></p>
@@ -1235,7 +1231,7 @@ if not len(seq):</code></pre>
 <ul>
 
 <li>In order to be forward compatible, function annotations in Python 3 code should preferably use <a href="https://www.python.org/dev/peps/pep-0484/">PEP 484</a> syntax. (There are some formatting recommendations for annotations in the previous section.)</li>
-
+<p></p>
 <li>The experimentation with annotation styles that was recommended previously in this PEP is no longer encouraged.</li>
 <p></p>
 <li>However, outside the stdlib, experiments within the rules of <a href="https://www.python.org/dev/peps/pep-0484/">PEP 484</a> are now encouraged. For example, marking up a large third party library or application with <a href="https://www.python.org/dev/peps/pep-0484/">PEP 484</a> style type annotations, reviewing how easy it was to add those annotations, and observing whether their presence increases code understandability.</li>
@@ -1254,6 +1250,37 @@ if not len(seq):</code></pre>
 <p></p>
 <li><p>For code that needs to be backwards compatible, type annotations can be added in the form of comments. See the relevant section of PEP 484 <a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>.</p></li>
 
+</ul>
+
+
+<h2 id="variable-annotations">Variable Annotations</h2>
+
+
+<p><a href="https://www.python.org/dev/peps/pep-0526">PEP 526</a> introduced variable annotations. The style recommendations for them are similar to those on function annotations described above:</p>
+<ul>
+<li>Annotations for module level variables, class and instance variables, and local variables should have a single space after the colon.</li>
+<p></p>
+<li>There should be no space before the colon.</li>
+<p></p>
+<li>If an assignment has a right hand side, then the equality sign should have exactly one space on both sides.</li>
+<p></p>
+<li>
+<p class="yes"><span>Yes:</span></p>
+<pre><code class="language-python">code: int
+
+class Point:
+    coords: Tuple[int, int]
+    label: str = '&lt;unknown&gt;'</code></pre>
+</li>
+<li>
+<p class="no"><span>No:</span></p>
+<pre><code class="language-python">code:int  # No space after colon
+code : int  # Space before colon
+
+class Test:
+    result: int=0  # No spaces around equality sign</code></pre>
+</li>
+<li>Although the <a href="https://www.python.org/dev/peps/pep-0526">PEP 526</a> is accepted for Python 3.6, the variable annotation syntax is the preferred syntax for stub files on all versions of Python (see <a href="https://www.python.org/dev/peps/pep-0484">PEP 484</a> for details).</li>
 </ul>
 
 <hr />
